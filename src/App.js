@@ -92,8 +92,8 @@ function App() {
       >
         <option value="">Select Country</option>
         {countries.map((country) => (
-          <option key={country.id} value={country.name}>
-            {country.name}
+          <option >
+            {country}
           </option>
         ))}
       </select>
