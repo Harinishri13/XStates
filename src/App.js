@@ -20,6 +20,7 @@ function App() {
         if (!res.ok) throw new Error("Failed to fetch countries");
         const data = await res.json();
         setCountries(data);
+        console.log("countries",res);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -74,8 +75,7 @@ function App() {
   }, [selectedState]);
 
   return (
-    <div className="App">
-      <h1>City Selector</h1>
+    <div className="App">   
 
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
@@ -92,7 +92,7 @@ function App() {
       >
         <option value="">Select Country</option>
         {countries.map((country) => (
-          <option >
+          <option key={country} value={country}>
             {country}
           </option>
         ))}
